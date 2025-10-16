@@ -1,0 +1,228 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Lux palette (3-5 colors): 
+   - Background: Obsidian
+   - Foreground: Ivory
+   - Primary: Royal Blue
+   - Accent: Gold
+   - Secondary: Graphite
+*/
+:root {
+  --background: oklch(0.98 0 0); /* Ivory (light bg) */
+  --foreground: oklch(0.16 0 0); /* Graphite */
+
+  --card: oklch(0.99 0 0);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+
+  /* Primary: Royal Blue */
+  --primary: oklch(0.58 0.18 250);
+  --primary-foreground: oklch(0.98 0 0); /* Light text on blue */
+
+  /* Secondary neutral (used for muted surfaces) */
+  --secondary: oklch(0.93 0 0);
+  --secondary-foreground: oklch(0.22 0 0);
+
+  /* Accent: Gold */
+  --accent: oklch(0.82 0.12 85);
+  --accent-foreground: oklch(0.18 0.01 250);
+
+  --destructive: oklch(0.62 0.16 25);
+  --destructive-foreground: oklch(0.14 0 0);
+
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.92 0 0);
+  --ring: var(--primary);
+
+  --chart-1: var(--primary);
+  --chart-2: oklch(0.74 0.1 85); /* soft gold */
+  --chart-3: oklch(0.4 0.02 250); /* deep blue */
+  --chart-4: oklch(0.5 0.03 260); /* slate */
+  --chart-5: oklch(0.36 0.03 20); /* warm neutral */
+
+  --radius: 0.875rem;
+
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--secondary-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* gradient stops (light) – luxury blue */
+  --bg-gradient-start: oklch(0.94 0.05 245);
+  --bg-gradient-end: oklch(0.86 0.12 250);
+}
+
+.dark {
+  --background: oklch(0.12 0.01 250); /* Obsidian with a slight blue hue */
+  --foreground: oklch(0.96 0 0); /* Ivory text */
+
+  --card: oklch(0.16 0.01 250);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+
+  /* Primary: brighter royal blue for dark mode */
+  --primary: oklch(0.66 0.2 250);
+  --primary-foreground: oklch(0.98 0 0);
+
+  /* Neutral secondary */
+  --secondary: oklch(0.22 0.005 250);
+  --secondary-foreground: var(--foreground);
+
+  /* Accent: richer gold */
+  --accent: oklch(0.76 0.14 85);
+  --accent-foreground: oklch(0.12 0.01 250);
+
+  --destructive: oklch(0.46 0.14 25);
+  --destructive-foreground: var(--foreground);
+
+  --border: oklch(0.24 0.01 250);
+  --input: var(--border);
+  --ring: var(--primary);
+
+  --chart-1: var(--primary);
+  --chart-2: oklch(0.7 0.12 85);
+  --chart-3: oklch(0.54 0.05 250);
+  --chart-4: oklch(0.62 0.04 260);
+  --chart-5: oklch(0.42 0.02 260);
+
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--secondary-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* gradient stops (dark) – deep luxury blue */
+  --bg-gradient-start: oklch(0.18 0.03 250);
+  --bg-gradient-end: oklch(0.28 0.06 250);
+}
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+  --font-serif: "Playfair Display", ui-serif, Georgia, "Times New Roman";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--secondary);
+  --color-muted-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* add subtle royal-blue gradient behind the OS */
+    background-image: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    background-attachment: fixed;
+    /* add full-viewport height so the gradient is always visible */
+    min-height: 100dvh;
+  }
+}
+
+.glass-panel {
+  @apply bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/15 rounded-xl;
+}
+
+.neon-edge {
+  /* use --neon if provided, else fallback to theme primary */
+  --_neon: var(--neon, var(--color-primary));
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--_neon) 35%, transparent), 0 0 22px
+    color-mix(in oklab, var(--_neon) 25%, transparent);
+}
+
+/* subtle top-left sheen for glass */
+.glass-reflection {
+  position: relative;
+}
+.glass-reflection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.06) 28%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  border-radius: inherit;
+  mask-image: radial-gradient(120% 120% at 0% 0%, #000 40%, transparent 60%);
+}
+
+/* luxury title hint glow */
+.title-shine {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25), 0 8px 24px color-mix(in oklab, var(--color-primary) 25%, transparent);
+}
+
+.soft-shadow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.neon-glow {
+  filter: drop-shadow(0 6px 18px color-mix(in oklab, var(--color-primary) 25%, transparent));
+}
+
+.smooth {
+  transition: all 200ms ease;
+}
+
+.smooth-md {
+  transition: all 300ms ease;
+}
+
+/* luxury-name gradient cyan -> silver with subtle neon glow */
+.luxury-name {
+  --lux-cyan: #22d3ee; /* cyan-400 */
+  --lux-silver: #c0c6cf; /* soft silver */
+  background: linear-gradient(90deg, var(--lux-cyan), var(--lux-silver));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 8px color-mix(in oklab, var(--lux-cyan) 40%, transparent), 0 0 18px
+    color-mix(in oklab, var(--lux-silver) 30%, transparent);
+  letter-spacing: 0.2px;
+}
